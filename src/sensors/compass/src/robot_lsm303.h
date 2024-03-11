@@ -189,6 +189,8 @@ public:
     int headingInt(bool avoidBurstRead = true);
     void test();
 
+    float getHeading();
+
     //===========================================================================
 
     deviceType getDeviceType(void) { return _device; }

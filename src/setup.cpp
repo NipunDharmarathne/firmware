@@ -13,7 +13,7 @@ void setup()
 
     // This commands should be run 'ONLY' at the first run to assign a ID for robot
     // RobotId, leftMotorCorrection, rightMotorCorrection
-    memory.setupRobotWithId(5, 0, 0);
+    // memory.setupRobotWithId(1, 15, -15);
 
     gpio.begin();
     motors.begin();
@@ -59,10 +59,10 @@ void beginMemory()
     if (memory.getMemoryStatus())
     {
 
-#ifdef ENABLE_MOTORS
-        motors.rightCorrection = memory.getErrorCorrection(RIGHT);
-        motors.leftCorrection = memory.getErrorCorrection(LEFT);
-#endif
+        #ifdef ENABLE_MOTORS
+            motors.rightCorrection = memory.getErrorCorrection(RIGHT);
+            motors.leftCorrection = memory.getErrorCorrection(LEFT);
+        #endif
 
         ROBOT_ID = memory.getRobotId();
     }

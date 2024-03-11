@@ -48,13 +48,26 @@ void loopModes()
     // Mode 3 --------------------------------------------------------------
     case MODE3:
         // What should happen on mode 3
-        delay(2000);
-        motors.write(200, 200);
+        // delay(2000);
+        // motors.write(200, 200);
 
         // distance_read();
         // delay(10000);
         // mode = BEGIN;
 
+        if ((0 <= compass.getHeading() && compass.getHeading() <= 5) || (70 <= compass.getHeading() && compass.getHeading() <= 80) ||  (160 <= compass.getHeading() && compass.getHeading() <= 165) || (275 <= compass.getHeading() && compass.getHeading() <= 280)) {
+            motors.stop();
+            delay(3000);
+            motors.write(-75, 75);
+        } else {
+            motors.write(-75, 75);
+        }
+        
+        // compass.getHeading();
+
+        // Serial.printf("algo_dist: %d\n", distance_read());
+        // distance.test();
+        // delay(500);
         break;
 
     // Mode WAIT --------------------------------------------------------------

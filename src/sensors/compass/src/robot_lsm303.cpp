@@ -468,6 +468,14 @@ void SW_LSM303::test(){
     delay(100);
 }
 
+float SW_LSM303::getHeading(){
+    this->read();
+    Serial.printf("\theading %.2f\n", this->heading());
+    Serial.println();
+    return this->heading();
+    delay(100);
+}
+
 //------------------------------------------------------------------------------
 #else
 //------------------------------------------------------------------------------
